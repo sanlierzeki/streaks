@@ -8,49 +8,37 @@
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 :root{
   --bg:#0A0A0F;
-  --glass:rgba(255,255,255,0.06);--glass2:rgba(255,255,255,0.10);
-  --gb:rgba(255,255,255,0.12);
+  --glass:rgba(255,255,255,0.06);--gb:rgba(255,255,255,0.12);
   --a1:#FF6B35;--a2:#FF3B8E;--a3:#7B6EF6;--a4:#34D399;--a5:#60A5FA;--a6:#FBBF24;
   --text:#F5F5F7;--muted:rgba(245,245,247,0.45);--border:rgba(255,255,255,0.10);
 }
 html{background:var(--bg)}
 body{
-  background:
-    radial-gradient(ellipse 80% 60% at 20% -10%,rgba(255,107,53,.18) 0%,transparent 60%),
-    radial-gradient(ellipse 60% 50% at 80% 100%,rgba(123,110,246,.15) 0%,transparent 60%),
-    var(--bg);
+  background:radial-gradient(ellipse 80% 60% at 20% -10%,rgba(255,107,53,.18) 0%,transparent 60%),
+             radial-gradient(ellipse 60% 50% at 80% 100%,rgba(123,110,246,.15) 0%,transparent 60%),
+             var(--bg);
   color:var(--text);
   font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',sans-serif;
   min-height:100vh;display:flex;flex-direction:column;align-items:center;
   padding-bottom:110px;overflow-x:hidden;
 }
 .glass{background:var(--glass);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border:1px solid var(--gb)}
-
-/* PAGES */
 .page{width:100%;max-width:480px;display:none;flex-direction:column;align-items:center}
 .page.active{display:flex}
-
-/* HEADER */
 .ph{width:100%;padding:52px 24px 12px;display:flex;justify-content:space-between;align-items:flex-end}
 .ph-title{font-size:30px;font-weight:800;letter-spacing:-.8px}
 .ph-sub{font-size:13px;color:var(--muted);margin-top:3px;font-weight:500}
 .add-btn{width:42px;height:42px;background:linear-gradient(135deg,var(--a1),var(--a2));border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:24px;color:#fff;box-shadow:0 4px 20px rgba(255,107,53,.4);transition:transform .18s}
 .add-btn:hover{transform:scale(1.1)}
 .add-btn:active{transform:scale(.92)}
-
-/* QUOTE */
 .quote-card{width:calc(100% - 48px);margin:0 24px 20px;border-radius:20px;padding:16px 18px;background:linear-gradient(135deg,rgba(255,107,53,.14),rgba(255,59,142,.09));border:1px solid rgba(255,107,53,.22);position:relative;overflow:hidden}
 .quote-card::before{content:'❝';position:absolute;top:-8px;left:14px;font-size:60px;color:rgba(255,107,53,.1);font-family:Georgia,serif;line-height:1}
 .qt{font-size:13.5px;font-weight:500;line-height:1.55;position:relative}
 .qa{font-size:11px;color:var(--muted);margin-top:6px;font-weight:600;position:relative}
-
-/* SUMMARY */
 .summary{width:100%;padding:0 24px 20px;display:flex;gap:10px}
 .sc{flex:1;border-radius:18px;padding:14px 12px;text-align:center;background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--gb)}
 .sc-val{font-size:26px;font-weight:800;line-height:1;background:linear-gradient(135deg,var(--a1),var(--a2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .sc-lbl{font-size:10px;color:var(--muted);margin-top:4px;font-weight:600}
-
-/* WEEK BAR */
 .week-bar{width:100%;padding:0 24px 24px;display:flex;gap:5px}
 .wd{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px}
 .wd-lbl{font-size:9px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.5px}
@@ -58,24 +46,20 @@ body{
 .wd.today .wd-dot{border-color:var(--a1);color:var(--a1);background:rgba(255,107,53,.1)}
 .wd.done .wd-dot{background:linear-gradient(135deg,var(--a1),var(--a2));border-color:transparent;color:#fff;box-shadow:0 2px 10px rgba(255,107,53,.4)}
 .wd.partial .wd-dot{border-color:rgba(255,107,53,.5);color:rgba(255,107,53,.7)}
-
-/* SECTION TITLE */
 .sec-title{width:100%;padding:0 24px 12px;font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
-
-/* HABIT GRID */
 .habit-grid{width:100%;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .habit-card-wrap{position:relative;border-radius:22px}
 .habit-card{border-radius:22px;padding:18px 16px;cursor:pointer;position:relative;overflow:hidden;transition:transform .18s cubic-bezier(.34,1.2,.64,1),box-shadow .18s;user-select:none;background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--gb);min-height:140px;display:flex;flex-direction:column;justify-content:space-between}
 .habit-card:active{transform:scale(.95)}
-.habit-card.completed{border-color:var(--hc,var(--a1));box-shadow:0 0 0 1px var(--hc,var(--a1)),0 8px 32px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.1)}
+.habit-card.completed{border-color:var(--hc,var(--a1));box-shadow:0 0 0 1px var(--hc,var(--a1)),0 8px 32px rgba(0,0,0,.3)}
 .habit-card::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 90% 10%,var(--hc,var(--a1)),transparent 65%);opacity:0;transition:opacity .3s;pointer-events:none}
 .habit-card.completed::after{opacity:.12}
-.habit-card.completed::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.04) 50%,transparent 70%);pointer-events:none}
 .hc-top{display:flex;justify-content:space-between;align-items:flex-start}
 .habit-icon{font-size:28px;line-height:1}
 .habit-name{font-size:14px;font-weight:700;letter-spacing:-.3px;padding-top:8px}
 .habit-streak{font-size:11.5px;color:var(--muted);display:flex;align-items:center;gap:3px;margin-top:3px}
 .snum{font-weight:800;color:var(--hc,var(--a1))}
+.hc-target{font-size:10px;color:var(--muted);margin-top:2px;font-weight:600}
 .ring-wrap{position:relative;width:38px;height:38px;flex-shrink:0}
 .ring-wrap svg{width:38px;height:38px;transform:rotate(-90deg)}
 .ring-bg{fill:none;stroke:rgba(255,255,255,.1);stroke-width:3}
@@ -87,46 +71,45 @@ body{
 .habit-card-wrap:hover .del-btn{display:block}
 .habit-card-wrap.dragging{opacity:.4;transform:scale(.97)}
 .habit-card-wrap.drag-over .habit-card{border-color:var(--a3)!important;box-shadow:0 0 0 2px var(--a3)}
-
-/* EMPTY */
 .empty{width:100%;padding:60px 24px;text-align:center}
 .empty-icon{font-size:56px;margin-bottom:16px;display:block}
 .empty h3{font-size:19px;font-weight:700;margin-bottom:8px}
 .empty p{font-size:14px;color:var(--muted);line-height:1.6}
-
 /* MODAL */
 .modal-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:200;align-items:flex-end;justify-content:center}
 .modal-backdrop.open{display:flex}
-.modal{width:100%;max-width:480px;background:rgba(22,22,32,.95);backdrop-filter:blur(40px) saturate(200%);-webkit-backdrop-filter:blur(40px) saturate(200%);border-radius:28px 28px 0 0;padding:20px 24px 40px;animation:slideUp .32s cubic-bezier(.34,1.15,.64,1);border-top:1px solid rgba(255,255,255,.15);border-left:1px solid rgba(255,255,255,.08);border-right:1px solid rgba(255,255,255,.08)}
+.modal{width:100%;max-width:480px;background:rgba(22,22,32,.95);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border-radius:28px 28px 0 0;padding:20px 24px 40px;animation:slideUp .32s cubic-bezier(.34,1.15,.64,1);border-top:1px solid rgba(255,255,255,.15)}
 @keyframes slideUp{from{transform:translateY(100%);opacity:0}to{transform:translateY(0);opacity:1}}
 .mhandle{width:36px;height:4px;background:rgba(255,255,255,.2);border-radius:2px;margin:0 auto 20px}
 .modal h2{font-size:21px;font-weight:800;margin-bottom:20px;text-align:center;letter-spacing:-.4px}
 .modal label{display:block;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px}
-.modal input[type=text]{width:100%;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.1);border-radius:14px;padding:13px 16px;color:var(--text);font-size:16px;font-family:inherit;outline:none;transition:border-color .2s,background .2s;margin-bottom:18px}
+.modal input[type=text]{width:100%;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.1);border-radius:14px;padding:13px 16px;color:var(--text);font-size:16px;font-family:inherit;outline:none;transition:border-color .2s;margin-bottom:18px}
 .modal input[type=text]:focus{border-color:var(--a1);background:rgba(255,107,53,.07)}
 .epicker{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:18px}
 .eopt{aspect-ratio:1;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.1);border-radius:13px;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;transition:all .15s}
 .eopt.sel{border-color:var(--a1);background:rgba(255,107,53,.15);transform:scale(1.08)}
-.cpicker{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap}
+.cpicker{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap}
 .copt{width:34px;height:34px;border-radius:50%;cursor:pointer;border:2.5px solid transparent;transition:all .15s;position:relative}
-.copt.sel{border-color:#fff;transform:scale(1.18);box-shadow:0 0 12px currentColor}
+.copt.sel{border-color:#fff;transform:scale(1.18)}
 .copt.sel::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff;font-weight:800}
+.td-wrap{display:flex;gap:6px;margin-bottom:24px}
+.td-opt{flex:1;padding:8px 0;border-radius:10px;font-size:11px;font-weight:700;cursor:pointer;border:1.5px solid rgba(255,255,255,.1);background:rgba(255,255,255,.06);color:var(--muted);transition:all .15s;text-align:center}
+.td-opt.sel{border-color:var(--a1);background:rgba(255,107,53,.15);color:var(--text)}
 .mbtns{display:flex;gap:10px}
 .btn-cancel{flex:1;padding:15px;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.1);border-radius:16px;color:var(--text);font-size:15px;font-weight:600;cursor:pointer;font-family:inherit}
 .btn-save{flex:2;padding:15px;background:linear-gradient(135deg,var(--a1),var(--a2));border:none;border-radius:16px;color:#fff;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;box-shadow:0 4px 20px rgba(255,107,53,.4)}
-
-/* DAY EDIT MODAL */
+/* DAY MODAL */
 .day-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);z-index:250;align-items:flex-end;justify-content:center}
 .day-backdrop.open{display:flex}
 .day-modal{width:100%;max-width:480px;background:rgba(18,18,28,.96);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border-radius:28px 28px 0 0;padding:20px 24px 44px;animation:slideUp .3s cubic-bezier(.34,1.15,.64,1);border-top:1px solid rgba(255,255,255,.15);max-height:75vh;overflow-y:auto}
 .dm-handle{width:36px;height:4px;background:rgba(255,255,255,.2);border-radius:2px;margin:0 auto 16px}
 .dm-title{font-size:20px;font-weight:800;text-align:center;margin-bottom:4px;letter-spacing:-.3px}
-.dm-sub{font-size:12px;color:var(--muted);text-align:center;margin-bottom:20px}
-.dm-progress{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:20px}
+.dm-sub{font-size:12px;color:var(--muted);text-align:center;margin-bottom:16px}
+.dm-prog-wrap{display:flex;align-items:center;gap:8px;margin-bottom:18px}
 .dm-prog-bar{flex:1;height:5px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden}
-.dm-prog-fill{height:100%;background:linear-gradient(90deg,var(--a1),var(--a2));border-radius:3px;transition:width .4s ease}
+.dm-prog-fill{height:100%;background:linear-gradient(90deg,var(--a1),var(--a2));border-radius:3px;transition:width .4s}
 .dm-prog-txt{font-size:12px;font-weight:700;color:var(--a1);white-space:nowrap}
-.dhr{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-radius:16px;margin-bottom:8px;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.08);cursor:pointer;transition:all .18s;-webkit-tap-highlight-color:transparent}
+.dhr{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-radius:16px;margin-bottom:8px;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.08);cursor:pointer;transition:all .18s}
 .dhr:active{transform:scale(.97)}
 .dhr.done-day{border-color:var(--rc,var(--a1));background:rgba(255,255,255,.04)}
 .dhr-left{display:flex;align-items:center;gap:12px}
@@ -135,48 +118,15 @@ body{
 .dhr-check{width:28px;height:28px;border-radius:50%;border:2px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;transition:all .2s;flex-shrink:0;color:transparent}
 .dhr.done-day .dhr-check{background:var(--rc,var(--a1));border-color:var(--rc,var(--a1));color:#fff;box-shadow:0 0 10px var(--rc,var(--a1))}
 .dm-close{width:100%;margin-top:12px;padding:14px;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.1);border-radius:16px;color:var(--text);font-size:15px;font-weight:600;cursor:pointer;font-family:inherit}
-
 /* BOTTOM NAV */
 .bottom-nav{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:center;padding:12px 0 32px;background:linear-gradient(to top,rgba(10,10,15,.96) 60%,transparent);z-index:100}
 .nav-pills{display:flex;gap:4px;padding:5px;border-radius:22px;background:rgba(255,255,255,.07);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.12);box-shadow:0 8px 32px rgba(0,0,0,.4)}
 .nav-pill{padding:9px 24px;border-radius:17px;font-size:13.5px;font-weight:600;color:var(--muted);cursor:pointer;transition:all .22s cubic-bezier(.34,1.2,.64,1);white-space:nowrap}
 .nav-pill.active{background:linear-gradient(135deg,var(--a1),var(--a2));color:#fff;box-shadow:0 4px 16px rgba(255,107,53,.4)}
-
-/* EXPORT / IMPORT */
-function exportData(){
-  const data={habits,completions,exportedAt:new Date().toISOString(),version:'2.1'};
-  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');
-  a.href=url;a.download=`streaks-yedek-${new Date().toLocaleDateString('tr').replace(/\./g,'-')}.json`;
-  a.click();URL.revokeObjectURL(url);
-  showToast('✅ Yedek indirildi!');
-}
-function importData(e){
-  const file=e.target.files[0];if(!file)return;
-  const reader=new FileReader();
-  reader.onload=ev=>{
-    try{
-      const data=JSON.parse(ev.target.result);
-      if(!data.habits||!data.completions)throw new Error('Geçersiz dosya');
-      if(!confirm(`${data.habits.length} alışkanlık ve geçmiş verisi yüklenecek. Mevcut veriler silinecek. Devam?`))return;
-      habits=data.habits;completions=data.completions;
-      save();render();renderSettings();
-      showToast('✅ Veri yüklendi!');
-    }catch(err){showToast('❌ Geçersiz dosya');}
-    e.target.value='';
-  };
-  reader.readAsText(file);
-}
-
-/* TOAST */
 .toast{position:fixed;bottom:110px;left:50%;transform:translateX(-50%) translateY(12px);background:rgba(30,30,40,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:11px 20px;font-size:14px;font-weight:600;opacity:0;transition:all .28s cubic-bezier(.34,1.2,.64,1);pointer-events:none;white-space:nowrap;z-index:350}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-
-/* CONFETTI */
 #cc{position:fixed;inset:0;pointer-events:none;z-index:400}
-
-/* ── STATS ── */
+/* STATS */
 .ssec{width:100%;padding:0 24px 24px}
 .ssec h2{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px}
 .big4{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -189,20 +139,15 @@ function importData(e){
 .b4.green .b4-val{background:linear-gradient(135deg,var(--a4),var(--a5));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .b4.gold .b4-val{background:linear-gradient(135deg,var(--a6),var(--a1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .b4.purple .b4-val{background:linear-gradient(135deg,var(--a3),var(--a2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-
-/* BAR CHART */
 .bar-chart{display:flex;align-items:flex-end;gap:6px;height:90px;padding:0 4px}
 .bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%;justify-content:flex-end}
 .bar-fill{width:100%;border-radius:7px 7px 0 0;min-height:4px;transition:height .5s}
 .bar-lbl{font-size:10px;color:var(--muted);font-weight:700}
 .bar-val{font-size:10px;color:var(--muted)}
-
-/* HEATMAP — fixed width, no scroll */
 .hm-wrap{width:100%;padding:0 24px 24px}
 .hm-inner{border-radius:20px;padding:16px;background:var(--glass);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid var(--gb)}
 .hm-grid{display:grid;grid-template-rows:repeat(7,1fr);grid-auto-flow:column;gap:3px}
-.hm-cell{width:100%;aspect-ratio:1;border-radius:3px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.04);cursor:default;transition:transform .1s;min-width:0}
-.hm-cell:hover{transform:scale(1.3);z-index:5}
+.hm-cell{width:100%;aspect-ratio:1;border-radius:3px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.04);min-width:0}
 .hm-cell.l1{background:rgba(255,107,53,.28)}
 .hm-cell.l2{background:rgba(255,107,53,.52)}
 .hm-cell.l3{background:rgba(255,107,53,.78)}
@@ -210,13 +155,10 @@ function importData(e){
 .hm-legend{display:flex;align-items:center;gap:5px;margin-top:10px;justify-content:flex-end}
 .hm-legend span{font-size:10px;color:var(--muted)}
 .hm-sq{width:11px;height:11px;border-radius:2px}
-
-/* CALENDAR */
 .cal-wrap{width:100%;padding:0 24px 24px}
 .cal-card{border-radius:20px;padding:16px;background:var(--glass);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid var(--gb)}
 .cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
-.cal-nav-btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:7px 16px;color:var(--text);cursor:pointer;font-size:15px;font-weight:600;font-family:inherit;transition:background .15s;line-height:1}
-.cal-nav-btn:hover{background:rgba(255,255,255,.14)}
+.cal-nav-btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:7px 16px;color:var(--text);cursor:pointer;font-size:15px;font-weight:600;font-family:inherit;line-height:1}
 .cal-title{font-size:16px;font-weight:800;letter-spacing:-.3px}
 .cal-dh-row{display:grid;grid-template-columns:repeat(7,1fr);margin-bottom:6px}
 .cal-dh{font-size:9.5px;font-weight:700;color:var(--muted);text-align:center;padding:2px 0;text-transform:uppercase;letter-spacing:.4px}
@@ -235,8 +177,6 @@ function importData(e){
 .cal-cell.l4{background:rgba(255,107,53,.12)}
 .cal-cell.l4 .cal-dot{background:var(--a1);box-shadow:0 0 4px rgba(255,107,53,.6)}
 .cal-hint{font-size:11px;color:var(--muted);text-align:center;margin-top:12px;font-weight:500}
-
-/* HABIT STAT ROWS */
 .hsr{border-radius:18px;padding:16px;margin-bottom:10px;cursor:pointer;transition:background .15s;background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--gb)}
 .hsr:hover{background:rgba(255,255,255,.1)}
 .hsr-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
@@ -249,8 +189,6 @@ function importData(e){
 .hsr-meta{display:flex;gap:14px;margin-top:9px}
 .hsr-mi{font-size:11px;color:var(--muted)}
 .hsr-mi b{color:var(--text);font-weight:700}
-
-/* DETAIL PAGE */
 .detail-header{width:100%;padding:52px 24px 20px;display:flex;align-items:center;gap:14px}
 .detail-back{background:var(--glass);border:1px solid var(--gb);border-radius:12px;padding:8px 14px;cursor:pointer;font-size:13px;font-weight:600;color:var(--text);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .dh-card{width:calc(100% - 48px);margin:0 24px 24px;border-radius:24px;padding:24px;position:relative;background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--gb)}
@@ -263,7 +201,6 @@ function importData(e){
 .dstat-row:last-child{border-bottom:none}
 .dstat-lbl{font-size:15px;font-weight:600}
 .dstat-val{font-size:20px;font-weight:800}
-
 /* SETTINGS */
 .sgroup{width:calc(100% - 48px);margin:0 24px 20px;border-radius:20px;overflow:hidden;background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--gb)}
 .srow{padding:16px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.06)}
@@ -273,13 +210,6 @@ function importData(e){
 .btn-danger{background:rgba(255,59,48,.18);border:1px solid rgba(255,59,48,.3);border-radius:10px;padding:7px 14px;color:#FF3B30;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit}
 .btn-export{background:rgba(52,211,153,.15);border:1px solid rgba(52,211,153,.3);border-radius:10px;padding:7px 14px;color:#34D399;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit}
 .btn-import{background:rgba(96,165,250,.15);border:1px solid rgba(96,165,250,.3);border-radius:10px;padding:7px 14px;color:#60A5FA;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit}
-.td-opt{padding:7px 0;border-radius:10px;font-size:12px;font-weight:700;cursor:pointer;border:1.5px solid rgba(255,255,255,.1);background:rgba(255,255,255,.06);color:var(--muted);transition:all .15s;text-align:center;flex:1;min-width:36px}
-.td-opt.sel{border-color:var(--a1);background:rgba(255,107,53,.15);color:var(--text)}
-.td-wrap{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
-.hc-target{font-size:10px;color:var(--muted);margin-top:1px;font-weight:600}
-.hc-target.on-track{color:#34D399}
-.hc-target.off-track{color:#FF3B8E}
-
 .stats-empty{padding:32px 24px;text-align:center}
 .stats-empty .ei{font-size:36px;margin-bottom:10px}
 .stats-empty p{font-size:14px;color:var(--muted)}
@@ -329,7 +259,7 @@ function importData(e){
     <div class="glass" style="border-radius:20px;padding:16px"><div class="bar-chart" id="weeklyChart"></div></div>
   </div>
   <div class="hm-wrap">
-    <div class="ssec" style="padding:0 0 12px"><h2 style="margin:0">Yıllık Aktivite</h2></div>
+    <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">Yıllık Aktivite</div>
     <div class="hm-inner">
       <div class="hm-grid" id="hmGrid"></div>
       <div class="hm-legend">
@@ -344,7 +274,7 @@ function importData(e){
     </div>
   </div>
   <div class="cal-wrap">
-    <div class="ssec" style="padding:0 0 12px"><h2 style="margin:0">Aylık Takvim</h2></div>
+    <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">Aylık Takvim</div>
     <div class="cal-card">
       <div class="cal-nav">
         <button class="cal-nav-btn" onclick="calPrev()">‹</button>
@@ -377,9 +307,7 @@ function importData(e){
   </div>
   <div class="ssec">
     <h2>Son 30 Gün</h2>
-    <div class="glass" style="border-radius:20px;padding:16px">
-      <div id="detailHeatmap" style="display:flex;gap:3px;flex-wrap:wrap"></div>
-    </div>
+    <div class="glass" style="border-radius:20px;padding:16px"><div id="detailHeatmap" style="display:flex;gap:3px;flex-wrap:wrap"></div></div>
   </div>
   <div class="ssec">
     <h2>İstatistikler</h2>
@@ -403,8 +331,8 @@ function importData(e){
     <div class="srow"><div><div class="srow-lbl">Toplam tamamlama</div><div class="srow-sub">Tüm alışkanlıklar</div></div><div style="font-size:22px;font-weight:800;color:var(--a5)" id="settingsTotal">0</div></div>
   </div>
   <div class="sgroup">
-    <div class="srow"><div><div class="srow-lbl">Veriyi Dışa Aktar</div><div class="srow-sub">JSON dosyası olarak indir</div></div><button class="btn-export" onclick="exportData()">⬇ İndir</button></div>
-    <div class="srow"><div><div class="srow-lbl">Veriyi İçe Aktar</div><div class="srow-sub">JSON dosyasından yükle</div></div><button class="btn-import" onclick="document.getElementById('importFile').click()">⬆ Yükle</button></div>
+    <div class="srow"><div><div class="srow-lbl">Veriyi Dışa Aktar</div><div class="srow-sub">JSON dosyası olarak indir — yedeğini al</div></div><button class="btn-export" onclick="exportData()">⬇ İndir</button></div>
+    <div class="srow"><div><div class="srow-lbl">Veriyi İçe Aktar</div><div class="srow-sub">Yedeğinden geri yükle</div></div><button class="btn-import" onclick="document.getElementById('importFile').click()">⬆ Yükle</button></div>
   </div>
   <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(event)">
   <div class="sgroup">
@@ -417,7 +345,7 @@ function importData(e){
   </div>
 </div>
 
-<!-- ADD HABIT MODAL -->
+<!-- ADD MODAL -->
 <div class="modal-backdrop" id="modalBackdrop" onclick="if(event.target===this)closeModal()">
   <div class="modal">
     <div class="mhandle"></div>
@@ -428,7 +356,7 @@ function importData(e){
     <div class="epicker" id="emojiPicker"></div>
     <label>Renk Seç</label>
     <div class="cpicker" id="colorPicker"></div>
-    <label>Hedef Gün (haftada kaç gün?)</label>
+    <label>Hedef Gün — haftada kaç gün?</label>
     <div class="td-wrap" id="targetDaysPicker"></div>
     <div class="mbtns">
       <button class="btn-cancel" onclick="closeModal()">İptal</button>
@@ -439,11 +367,11 @@ function importData(e){
 
 <!-- DAY EDIT MODAL -->
 <div class="day-backdrop" id="dayBackdrop" onclick="if(event.target===this)closeDayModal()">
-  <div class="day-modal" id="dayModal">
+  <div class="day-modal">
     <div class="dm-handle"></div>
     <div class="dm-title" id="dmTitle"></div>
     <div class="dm-sub" id="dmSub"></div>
-    <div class="dm-progress" id="dmProgress" style="display:none">
+    <div class="dm-prog-wrap" id="dmProgWrap" style="display:none">
       <div class="dm-prog-bar"><div class="dm-prog-fill" id="dmProgFill"></div></div>
       <div class="dm-prog-txt" id="dmProgTxt"></div>
     </div>
@@ -478,371 +406,434 @@ const QUOTES=[
   {t:'Mükemmel olmak değil, tutarlı olmak önemlidir.',a:'—'},
 ];
 
-let habits=JSON.parse(localStorage.getItem('sh_habits')||'[]');
-let completions=JSON.parse(localStorage.getItem('sh_comp')||'{}');
-let selEmoji=EMOJIS[0],selColor=COLORS[0],selTargetDays=7;
-let calYear=new Date().getFullYear(),calMonth=new Date().getMonth();
-let prevPage='İstatistik',activeDayDate=null;
+let habits = JSON.parse(localStorage.getItem('sh_habits') || '[]');
+let completions = JSON.parse(localStorage.getItem('sh_comp') || '{}');
+let selEmoji = EMOJIS[0], selColor = COLORS[0], selTargetDays = 7;
+let calYear = new Date().getFullYear(), calMonth = new Date().getMonth();
+let prevPage = 'İstatistik';
 
-function dk(d){return`${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`}
-const todayKey=()=>dk(new Date());
-function save(){localStorage.setItem('sh_habits',JSON.stringify(habits));localStorage.setItem('sh_comp',JSON.stringify(completions))}
-function isToday(id){return(completions[todayKey()]||[]).includes(id)}
+function dk(d) { return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate(); }
+function todayKey() { return dk(new Date()); }
+function save() {
+  localStorage.setItem('sh_habits', JSON.stringify(habits));
+  localStorage.setItem('sh_comp', JSON.stringify(completions));
+}
+function isCompletedToday(id) { return (completions[todayKey()] || []).includes(id); }
 
 /* QUOTE */
-function renderQuote(){
-  const d=new Date(),q=QUOTES[(d.getDate()+d.getMonth())%QUOTES.length];
-  document.getElementById('qtext').textContent=q.t;
-  document.getElementById('qauth').textContent='— '+q.a;
+function renderQuote() {
+  const d = new Date(), q = QUOTES[(d.getDate() + d.getMonth()) % QUOTES.length];
+  document.getElementById('qtext').textContent = q.t;
+  document.getElementById('qauth').textContent = '— ' + q.a;
 }
 
 /* PAGE SWITCH */
-function switchPage(name,el){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.nav-pill').forEach(p=>p.classList.remove('active'));
-  document.getElementById('page'+name).classList.add('active');
-  if(el)el.classList.add('active');
-  window.scrollTo(0,0);
-  if(name==='İstatistik')renderStats();
-  if(name==='Ayarlar')renderSettings();
+function switchPage(name, el) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
+  document.getElementById('page' + name).classList.add('active');
+  if (el) el.classList.add('active');
+  window.scrollTo(0, 0);
+  if (name === 'İstatistik') renderStats();
+  if (name === 'Ayarlar') renderSettings();
 }
-function openDetail(id){
-  prevPage=document.querySelector('.nav-pill.active')?.dataset.page||'İstatistik';
+function openDetail(id) {
+  prevPage = document.querySelector('.nav-pill.active')?.dataset.page || 'İstatistik';
   renderDetail(id);
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('pageDetail').classList.add('active');
-  window.scrollTo(0,0);
+  window.scrollTo(0, 0);
 }
-function backFromDetail(){switchPage(prevPage,document.querySelector(`.nav-pill[data-page="${prevPage}"]`))}
+function backFromDetail() {
+  switchPage(prevPage, document.querySelector('.nav-pill[data-page="' + prevPage + '"]'));
+}
 
 /* TOGGLE TODAY */
-function toggleHabit(id){
-  const key=todayKey();
-  if(!completions[key])completions[key]=[];
-  const idx=completions[key].indexOf(id);
-  if(idx===-1){
+function toggleHabit(id) {
+  const key = todayKey();
+  if (!completions[key]) completions[key] = [];
+  const idx = completions[key].indexOf(id);
+  if (idx === -1) {
     completions[key].push(id);
-    const h=habits.find(x=>x.id===id);
-    if(h){h.streak=(h.streak||0)+1;if(h.streak>(h.best||0))h.best=h.streak}
-    showToast('🔥 Tamamlandı!');launchConfetti();
-  }else{
-    completions[key].splice(idx,1);
-    const h=habits.find(x=>x.id===id);
-    if(h&&h.streak>0)h.streak--;
+    const h = habits.find(x => x.id === id);
+    if (h) { h.streak = (h.streak || 0) + 1; if (h.streak > (h.best || 0)) h.best = h.streak; }
+    showToast('🔥 Tamamlandı!');
+    launchConfetti();
+  } else {
+    completions[key].splice(idx, 1);
+    const h = habits.find(x => x.id === id);
+    if (h && h.streak > 0) h.streak--;
     showToast('↩ Geri alındı');
   }
-  save();render();
-  const card=document.querySelector(`[data-id="${id}"]`);
-  if(card&&idx===-1){card.classList.add('just-done');setTimeout(()=>card.classList.remove('just-done'),500)}
+  save(); render();
+  const card = document.querySelector('[data-id="' + id + '"]');
+  if (card && idx === -1) { card.classList.add('just-done'); setTimeout(() => card.classList.remove('just-done'), 500); }
 }
 
-function deleteHabit(id,e){
+function deleteHabit(id, e) {
   e.stopPropagation();
-  if(!confirm('Bu alışkanlığı silmek istiyor musun?'))return;
-  habits=habits.filter(h=>h.id!==id);save();render();showToast('🗑 Silindi');
+  if (!confirm('Bu alışkanlığı silmek istiyor musun?')) return;
+  habits = habits.filter(h => h.id !== id);
+  save(); render(); showToast('🗑 Silindi');
 }
 
 /* RENDER TODAY */
-function render(){
-  const now=new Date();
-  document.getElementById('todayDate').textContent=`${DAYS[now.getDay()]}, ${now.getDate()} ${MONTHS[now.getMonth()]} ${now.getFullYear()}`;
+function render() {
+  const now = new Date();
+  document.getElementById('todayDate').textContent = DAYS[now.getDay()] + ', ' + now.getDate() + ' ' + MONTHS[now.getMonth()] + ' ' + now.getFullYear();
   // week bar
-  const wb=document.getElementById('weekBar');wb.innerHTML='';
-  for(let i=6;i>=0;i--){
-    const d=new Date();d.setDate(d.getDate()-i);
-    const key=dk(d),cnt=(completions[key]||[]).length,max=Math.max(1,habits.length);
-    const isT=i===0,full=cnt>=max&&cnt>0,part=cnt>0&&!full;
-    const div=document.createElement('div');
-    div.className='wd'+(isT?' today':'')+(full?' done':'')+(part?' partial':'');
-    div.innerHTML=`<div class="wd-lbl">${DAYS[d.getDay()]}</div><div class="wd-dot">${d.getDate()}</div>`;
+  const wb = document.getElementById('weekBar'); wb.innerHTML = '';
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date(); d.setDate(d.getDate() - i);
+    const key = dk(d), cnt = (completions[key] || []).length, max = Math.max(1, habits.length);
+    const isT = i === 0, full = cnt >= max && cnt > 0, part = cnt > 0 && !full;
+    const div = document.createElement('div');
+    div.className = 'wd' + (isT ? ' today' : '') + (full ? ' done' : '') + (part ? ' partial' : '');
+    div.innerHTML = '<div class="wd-lbl">' + DAYS[d.getDay()] + '</div><div class="wd-dot">' + d.getDate() + '</div>';
     wb.appendChild(div);
   }
   // summary
-  document.getElementById('sumDone').textContent=(completions[todayKey()]||[]).length;
-  document.getElementById('sumTotal').textContent=habits.length;
-  document.getElementById('sumBest').textContent=habits.reduce((m,h)=>Math.max(m,h.best||0),0);
+  document.getElementById('sumDone').textContent = (completions[todayKey()] || []).length;
+  document.getElementById('sumTotal').textContent = habits.length;
+  document.getElementById('sumBest').textContent = habits.reduce((m, h) => Math.max(m, h.best || 0), 0);
   // grid
-  const grid=document.getElementById('habitGrid'),empty=document.getElementById('emptyState');
-  grid.innerHTML='';
-  if(!habits.length){empty.style.display='';return}
-  empty.style.display='none';
-  habits.forEach((h,i)=>{
-    const done=isToday(h.id),r=16,circ=2*Math.PI*r;
-    const wrap=document.createElement('div');wrap.className='habit-card-wrap';
-    wrap.draggable=true;wrap.dataset.idx=i;
-    wrap.addEventListener('dragstart',onDragStart);
-    wrap.addEventListener('dragover',onDragOver);
-    wrap.addEventListener('drop',onDrop);
-    wrap.addEventListener('dragend',onDragEnd);
-    const card=document.createElement('div');
-    card.className='habit-card'+(done?' completed':'');
-    card.dataset.id=h.id;card.style.setProperty('--hc',h.color);
-    card.onclick=()=>toggleHabit(h.id);
-    card.innerHTML=`
-      <div class="hc-top">
-        <span class="habit-icon">${h.emoji}</span>
-        <div class="ring-wrap">
-          <svg viewBox="0 0 38 38"><circle class="ring-bg" cx="19" cy="19" r="${r}"/><circle class="ring-fill" cx="19" cy="19" r="${r}" stroke="${h.color}" stroke-dasharray="${circ}" stroke-dashoffset="${circ-(done?circ:0)}"/></svg>
-          <div class="ring-check" style="color:${h.color};font-size:13px">${done?'✓':''}</div>
-        </div>
-      </div>
-      <div>
-        <div class="habit-name">${h.name}</div>
-        <div class="habit-streak">🔥 <span class="snum">${h.streak||0}</span> günlük seri</div>
-        ${(h.targetDays&&h.targetDays<7)?`<div class="hc-target">Hedef: haftada ${h.targetDays} gün</div>`:''}
-      </div>\`;
-    const del=document.createElement('button');del.className='del-btn';del.textContent='🗑';
-    del.onclick=e=>deleteHabit(h.id,e);
-    wrap.appendChild(card);wrap.appendChild(del);grid.appendChild(wrap);
+  const grid = document.getElementById('habitGrid'), empty = document.getElementById('emptyState');
+  grid.innerHTML = '';
+  if (!habits.length) { empty.style.display = ''; return; }
+  empty.style.display = 'none';
+  habits.forEach((h, i) => {
+    const done = isCompletedToday(h.id), r = 16, circ = 2 * Math.PI * r;
+    const wrap = document.createElement('div'); wrap.className = 'habit-card-wrap';
+    wrap.draggable = true; wrap.dataset.idx = i;
+    wrap.addEventListener('dragstart', onDragStart);
+    wrap.addEventListener('dragover', onDragOver);
+    wrap.addEventListener('drop', onDrop);
+    wrap.addEventListener('dragend', onDragEnd);
+    const card = document.createElement('div');
+    card.className = 'habit-card' + (done ? ' completed' : '');
+    card.dataset.id = h.id; card.style.setProperty('--hc', h.color);
+    card.onclick = () => toggleHabit(h.id);
+    const targetBadge = (h.targetDays && h.targetDays < 7)
+      ? '<div class="hc-target">Hedef: haftada ' + h.targetDays + ' gün</div>' : '';
+    card.innerHTML =
+      '<div class="hc-top">' +
+        '<span class="habit-icon">' + h.emoji + '</span>' +
+        '<div class="ring-wrap">' +
+          '<svg viewBox="0 0 38 38"><circle class="ring-bg" cx="19" cy="19" r="' + r + '"/>' +
+          '<circle class="ring-fill" cx="19" cy="19" r="' + r + '" stroke="' + h.color + '" stroke-dasharray="' + circ + '" stroke-dashoffset="' + (circ - (done ? circ : 0)) + '"/></svg>' +
+          '<div class="ring-check" style="color:' + h.color + ';font-size:13px">' + (done ? '✓' : '') + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div>' +
+        '<div class="habit-name">' + h.name + '</div>' +
+        '<div class="habit-streak">🔥 <span class="snum">' + (h.streak || 0) + '</span> günlük seri</div>' +
+        targetBadge +
+      '</div>';
+    const del = document.createElement('button'); del.className = 'del-btn'; del.textContent = '🗑';
+    del.onclick = e => deleteHabit(h.id, e);
+    wrap.appendChild(card); wrap.appendChild(del); grid.appendChild(wrap);
   });
 }
 
 /* DRAG */
-let dragSrc=null;
-function onDragStart(e){dragSrc=this;this.classList.add('dragging');e.dataTransfer.effectAllowed='move'}
-function onDragOver(e){e.preventDefault();this.classList.add('drag-over');return false}
-function onDrop(e){
+let dragSrc = null;
+function onDragStart(e) { dragSrc = this; this.classList.add('dragging'); e.dataTransfer.effectAllowed = 'move'; }
+function onDragOver(e) { e.preventDefault(); this.classList.add('drag-over'); return false; }
+function onDrop(e) {
   e.stopPropagation();
-  if(dragSrc!==this){const si=+dragSrc.dataset.idx,ti=+this.dataset.idx;const t=habits[si];habits[si]=habits[ti];habits[ti]=t;save();render()}
+  if (dragSrc !== this) {
+    const si = +dragSrc.dataset.idx, ti = +this.dataset.idx;
+    const t = habits[si]; habits[si] = habits[ti]; habits[ti] = t;
+    save(); render();
+  }
   return false;
 }
-function onDragEnd(){document.querySelectorAll('.habit-card-wrap').forEach(w=>w.classList.remove('dragging','drag-over'))}
+function onDragEnd() { document.querySelectorAll('.habit-card-wrap').forEach(w => w.classList.remove('dragging', 'drag-over')); }
 
 /* CONFETTI */
-const canvas=document.getElementById('cc'),ctx=canvas.getContext('2d');
-let parts=[];
-function resizeCv(){canvas.width=window.innerWidth;canvas.height=window.innerHeight}
-resizeCv();window.addEventListener('resize',resizeCv);
-function launchConfetti(){
-  for(let i=0;i<80;i++)parts.push({x:Math.random()*canvas.width,y:-10,vx:(Math.random()-.5)*4,vy:Math.random()*4+2,c:COLORS[Math.floor(Math.random()*COLORS.length)],s:Math.random()*8+4,r:Math.random()*360,rs:(Math.random()-.5)*8,l:1});
-  if(parts.length===80)requestAnimationFrame(animCv);
+const canvas = document.getElementById('cc'), ctx = canvas.getContext('2d');
+let parts = [];
+function resizeCv() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+resizeCv(); window.addEventListener('resize', resizeCv);
+function launchConfetti() {
+  for (let i = 0; i < 80; i++) parts.push({
+    x: Math.random() * canvas.width, y: -10,
+    vx: (Math.random() - .5) * 4, vy: Math.random() * 4 + 2,
+    c: COLORS[Math.floor(Math.random() * COLORS.length)],
+    s: Math.random() * 8 + 4, r: Math.random() * 360, rs: (Math.random() - .5) * 8, l: 1
+  });
+  if (parts.length === 80) requestAnimationFrame(animCv);
 }
-function animCv(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  parts=parts.filter(p=>p.l>0);
-  parts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.12;p.r+=p.rs;p.l-=.015;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.r*Math.PI/180);ctx.globalAlpha=p.l;ctx.fillStyle=p.c;ctx.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);ctx.restore()});
-  if(parts.length)requestAnimationFrame(animCv);else ctx.clearRect(0,0,canvas.width,canvas.height);
+function animCv() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  parts = parts.filter(p => p.l > 0);
+  parts.forEach(p => {
+    p.x += p.vx; p.y += p.vy; p.vy += .12; p.r += p.rs; p.l -= .015;
+    ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.r * Math.PI / 180);
+    ctx.globalAlpha = p.l; ctx.fillStyle = p.c;
+    ctx.fillRect(-p.s / 2, -p.s / 4, p.s, p.s / 2); ctx.restore();
+  });
+  if (parts.length) requestAnimationFrame(animCv);
+  else ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
 /* STATS */
-function renderStats(){
-  const allDays=Object.keys(completions).sort();
-  const totalComp=Object.values(completions).reduce((s,a)=>s+a.length,0);
-  const best=habits.reduce((m,h)=>Math.max(m,h.best||0),0);
-  const tracked=allDays.length;
-  const possible=habits.length*tracked;
-  const rate=possible>0?Math.round(totalComp/possible*100):0;
-  const now=new Date();
-  document.getElementById('statsSub').textContent=`${now.getDate()} ${MONTHS[now.getMonth()]} ${now.getFullYear()}`;
-  document.getElementById('stBest').textContent=best;
-  document.getElementById('stTotal').textContent=totalComp;
-  document.getElementById('stRate').textContent=`%${rate}`;
-  document.getElementById('stDays').textContent=tracked;
-
+function renderStats() {
+  const allDays = Object.keys(completions).sort();
+  const totalComp = Object.values(completions).reduce((s, a) => s + a.length, 0);
+  const best = habits.reduce((m, h) => Math.max(m, h.best || 0), 0);
+  const tracked = allDays.length;
+  const possible = habits.length * tracked;
+  const rate = possible > 0 ? Math.round(totalComp / possible * 100) : 0;
+  const now = new Date();
+  document.getElementById('statsSub').textContent = now.getDate() + ' ' + MONTHS[now.getMonth()] + ' ' + now.getFullYear();
+  document.getElementById('stBest').textContent = best;
+  document.getElementById('stTotal').textContent = totalComp;
+  document.getElementById('stRate').textContent = '%' + rate;
+  document.getElementById('stDays').textContent = tracked;
   // weekly bars
-  const wc=document.getElementById('weeklyChart');wc.innerHTML='';
-  const cnts=Array.from({length:7},(_,i)=>{const d=new Date();d.setDate(d.getDate()-(6-i));return(completions[dk(d)]||[]).length});
-  const wmax=Math.max(1,...cnts);
-  for(let i=0;i<7;i++){
-    const d=new Date();d.setDate(d.getDate()-(6-i));
-    const cnt=cnts[i],pct=Math.round(cnt/wmax*100),isT=i===6;
-    const col=document.createElement('div');col.className='bar-col';
-    col.innerHTML=`<div class="bar-val" style="color:${isT?'var(--a1)':'var(--muted)'}">${cnt}</div><div class="bar-fill" style="height:${Math.max(5,pct)}%;background:${isT?'linear-gradient(180deg,var(--a1),var(--a2))':'rgba(255,255,255,.1)'}"></div><div class="bar-lbl" style="color:${isT?'var(--a1)':'var(--muted)'}">${DAYS[d.getDay()]}</div>`;
+  const wc = document.getElementById('weeklyChart'); wc.innerHTML = '';
+  const cnts = Array.from({length: 7}, (_, i) => { const d = new Date(); d.setDate(d.getDate() - (6 - i)); return (completions[dk(d)] || []).length; });
+  const wmax = Math.max(1, ...cnts);
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(); d.setDate(d.getDate() - (6 - i));
+    const cnt = cnts[i], pct = Math.round(cnt / wmax * 100), isT = i === 6;
+    const col = document.createElement('div'); col.className = 'bar-col';
+    col.innerHTML = '<div class="bar-val" style="color:' + (isT ? 'var(--a1)' : 'var(--muted)') + '">' + cnt + '</div>' +
+      '<div class="bar-fill" style="height:' + Math.max(5, pct) + '%;background:' + (isT ? 'linear-gradient(180deg,var(--a1),var(--a2))' : 'rgba(255,255,255,.1)') + '"></div>' +
+      '<div class="bar-lbl" style="color:' + (isT ? 'var(--a1)' : 'var(--muted)') + '">' + DAYS[d.getDay()] + '</div>';
     wc.appendChild(col);
   }
-
-  // heatmap — fixed grid, no scroll
-  // calculate how many cells fit: use 10 weeks * 7 days = 70 cells in a 10-col grid
-  const hg=document.getElementById('hmGrid');hg.innerHTML='';
-  const weeksN=10,hmax=Math.max(1,habits.length);
-  hg.style.gridTemplateColumns=`repeat(${weeksN},1fr)`;
-  // fill column by column (each col = one week, rows = days)
-  for(let w=weeksN-1;w>=0;w--){
-    for(let day=6;day>=0;day--){
-      const dt=new Date();dt.setDate(dt.getDate()-w*7-day);
-      const key=dk(dt),cnt=(completions[key]||[]).length,ratio=cnt/hmax;
-      let lvl=0;if(ratio>0)lvl=1;if(ratio>=.5)lvl=2;if(ratio>=.75)lvl=3;if(ratio>=1)lvl=4;
-      const cell=document.createElement('div');cell.className=`hm-cell${lvl?' l'+lvl:''}`;
-      cell.title=`${dt.getDate()} ${MONTHS[dt.getMonth()]}: ${cnt}/${hmax}`;
+  // heatmap
+  const hg = document.getElementById('hmGrid'); hg.innerHTML = '';
+  const weeksN = 10, hmax = Math.max(1, habits.length);
+  hg.style.gridTemplateColumns = 'repeat(' + weeksN + ',1fr)';
+  for (let w = weeksN - 1; w >= 0; w--) {
+    for (let day = 6; day >= 0; day--) {
+      const dt = new Date(); dt.setDate(dt.getDate() - w * 7 - day);
+      const cnt = (completions[dk(dt)] || []).length, ratio = cnt / hmax;
+      let lvl = 0; if (ratio > 0) lvl = 1; if (ratio >= .5) lvl = 2; if (ratio >= .75) lvl = 3; if (ratio >= 1) lvl = 4;
+      const cell = document.createElement('div');
+      cell.className = 'hm-cell' + (lvl ? ' l' + lvl : '');
+      cell.title = dt.getDate() + ' ' + MONTHS[dt.getMonth()] + ': ' + cnt + '/' + hmax;
       hg.appendChild(cell);
     }
   }
-
-  // calendar
   renderCalendar();
-
   // per-habit
-  const list=document.getElementById('habitStatList'),se=document.getElementById('statsEmpty');
-  list.innerHTML='';
-  if(!habits.length){se.style.display='';return}
-  se.style.display='none';
-  habits.forEach(h=>{
-    const daysWithH=allDays.filter(k=>(completions[k]||[]).includes(h.id)).length;
-    const pct=tracked>0?Math.round(daysWithH/tracked*100):0;
-    const row=document.createElement('div');row.className='hsr';
-    row.onclick=()=>openDetail(h.id);
-    row.innerHTML=`
-      <div class="hsr-top"><div class="hsr-left"><span class="hsr-emoji">${h.emoji}</span><span class="hsr-name">${h.name}</span></div><span class="hsr-pct" style="color:${h.color}">%${pct}</span></div>
-      <div class="hsr-bar-bg"><div class="hsr-bar-fill" style="width:${pct}%;background:${h.color}"></div></div>
-      <div class="hsr-meta"><div class="hsr-mi">Seri: <b style="color:${h.color}">${h.streak||0} 🔥</b></div><div class="hsr-mi">En iyi: <b>${h.best||0}</b></div><div class="hsr-mi">Tamamlanan: <b>${daysWithH} gün</b></div></div>`;
+  const list = document.getElementById('habitStatList'), se = document.getElementById('statsEmpty');
+  list.innerHTML = '';
+  if (!habits.length) { se.style.display = ''; return; }
+  se.style.display = 'none';
+  habits.forEach(h => {
+    const daysWithH = allDays.filter(k => (completions[k] || []).includes(h.id)).length;
+    const pct = tracked > 0 ? Math.round(daysWithH / tracked * 100) : 0;
+    const row = document.createElement('div'); row.className = 'hsr';
+    row.onclick = () => openDetail(h.id);
+    row.innerHTML =
+      '<div class="hsr-top"><div class="hsr-left"><span class="hsr-emoji">' + h.emoji + '</span><span class="hsr-name">' + h.name + '</span></div><span class="hsr-pct" style="color:' + h.color + '">%' + pct + '</span></div>' +
+      '<div class="hsr-bar-bg"><div class="hsr-bar-fill" style="width:' + pct + '%;background:' + h.color + '"></div></div>' +
+      '<div class="hsr-meta"><div class="hsr-mi">Seri: <b style="color:' + h.color + '">' + (h.streak || 0) + ' 🔥</b></div><div class="hsr-mi">En iyi: <b>' + (h.best || 0) + '</b></div><div class="hsr-mi">Tamamlanan: <b>' + daysWithH + ' gün</b></div></div>';
     list.appendChild(row);
   });
 }
 
 /* CALENDAR */
-function renderCalendar(){
-  document.getElementById('calTitle').textContent=`${MONTHS[calMonth]} ${calYear}`;
-  // day headers
-  const dhRow=document.getElementById('calDhRow');dhRow.innerHTML='';
-  DAYS.forEach(d=>{const c=document.createElement('div');c.className='cal-dh';c.textContent=d;dhRow.appendChild(c)});
-  // grid
-  const grid=document.getElementById('calGrid');grid.innerHTML='';
-  const first=new Date(calYear,calMonth,1),last=new Date(calYear,calMonth+1,0);
-  const startDay=first.getDay(),hmax=Math.max(1,habits.length),now=new Date();
-  const totalCells=Math.ceil((startDay+last.getDate())/7)*7;
-  for(let i=0;i<totalCells;i++){
-    const dayNum=i-startDay+1;
-    const cell=document.createElement('div');cell.className='cal-cell';
-    if(dayNum<1||dayNum>last.getDate()){cell.classList.add('other');grid.appendChild(cell);continue}
-    const d=new Date(calYear,calMonth,dayNum);
-    const key=dk(d),cnt=(completions[key]||[]).length,ratio=cnt/hmax;
-    cell.textContent=dayNum;
-    let lvl=0;if(ratio>0)lvl=1;if(ratio>=.5)lvl=2;if(ratio>=.75)lvl=3;if(ratio>=1)lvl=4;
-    if(lvl){cell.classList.add('l'+lvl,'has-data');const dot=document.createElement('div');dot.className='cal-dot';cell.appendChild(dot)}
-    if(d.toDateString()===now.toDateString())cell.classList.add('today');
-    // make clickable (all past + today, not future)
-    if(d<=now&&habits.length){
+function renderCalendar() {
+  document.getElementById('calTitle').textContent = MONTHS[calMonth] + ' ' + calYear;
+  const dhRow = document.getElementById('calDhRow'); dhRow.innerHTML = '';
+  DAYS.forEach(d => { const c = document.createElement('div'); c.className = 'cal-dh'; c.textContent = d; dhRow.appendChild(c); });
+  const grid = document.getElementById('calGrid'); grid.innerHTML = '';
+  const first = new Date(calYear, calMonth, 1), last = new Date(calYear, calMonth + 1, 0);
+  const startDay = first.getDay(), hmax = Math.max(1, habits.length), now = new Date();
+  const totalCells = Math.ceil((startDay + last.getDate()) / 7) * 7;
+  for (let i = 0; i < totalCells; i++) {
+    const dayNum = i - startDay + 1;
+    const cell = document.createElement('div'); cell.className = 'cal-cell';
+    if (dayNum < 1 || dayNum > last.getDate()) { cell.classList.add('other'); grid.appendChild(cell); continue; }
+    const d = new Date(calYear, calMonth, dayNum);
+    const key = dk(d), cnt = (completions[key] || []).length, ratio = cnt / hmax;
+    cell.textContent = dayNum;
+    let lvl = 0; if (ratio > 0) lvl = 1; if (ratio >= .5) lvl = 2; if (ratio >= .75) lvl = 3; if (ratio >= 1) lvl = 4;
+    if (lvl) { cell.classList.add('l' + lvl, 'has-data'); const dot = document.createElement('div'); dot.className = 'cal-dot'; cell.appendChild(dot); }
+    if (d.toDateString() === now.toDateString()) cell.classList.add('today');
+    if (d <= now && habits.length) {
       cell.classList.add('clickable');
-      const _d=new Date(d);
-      cell.addEventListener('click',()=>openDayModal(_d));
+      const _d = new Date(d);
+      cell.addEventListener('click', () => openDayModal(_d));
     }
     grid.appendChild(cell);
   }
-  // hint
-  const hint=document.getElementById('calHint');
-  hint.textContent=habits.length?'Bir güne tıklayarak o günün alışkanlıklarını düzenleyebilirsin.':'Önce alışkanlık ekle.';
+  document.getElementById('calHint').textContent = habits.length ? 'Geçmiş bir güne tıklayarak düzenleyebilirsin.' : 'Önce alışkanlık ekle.';
 }
-function calPrev(){calMonth--;if(calMonth<0){calMonth=11;calYear--}renderCalendar()}
-function calNext(){calMonth++;if(calMonth>11){calMonth=0;calYear++}renderCalendar()}
+function calPrev() { calMonth--; if (calMonth < 0) { calMonth = 11; calYear--; } renderCalendar(); }
+function calNext() { calMonth++; if (calMonth > 11) { calMonth = 0; calYear++; } renderCalendar(); }
 
 /* DAY EDIT MODAL */
-function openDayModal(date){
-  activeDayDate=date;
-  const key=dk(date),now=new Date();
-  const isToday2=date.toDateString()===now.toDateString();
-  const label=isToday2?'Bugün':`${date.getDate()} ${MONTHS[date.getMonth()]} ${date.getFullYear()}`;
-  document.getElementById('dmTitle').textContent=label;
-  document.getElementById('dmSub').textContent=isToday2?'Bugünün alışkanlıkları':'Bu güne ait alışkanlıkları düzenle';
+function openDayModal(date) {
+  const key = dk(date), now = new Date();
+  const isToday2 = date.toDateString() === now.toDateString();
+  const label = isToday2 ? 'Bugün' : date.getDate() + ' ' + MONTHS[date.getMonth()] + ' ' + date.getFullYear();
+  document.getElementById('dmTitle').textContent = label;
+  document.getElementById('dmSub').textContent = isToday2 ? 'Bugünün alışkanlıkları' : 'Bu güne ait alışkanlıkları düzenle';
   renderDayList(key);
   document.getElementById('dayBackdrop').classList.add('open');
 }
-function renderDayList(key){
-  const done=(completions[key]||[]);
-  const prog=document.getElementById('dmProgress');
-  const pct=habits.length>0?Math.round(done.length/habits.length*100):0;
-  if(habits.length){
-    prog.style.display='flex';
-    document.getElementById('dmProgFill').style.width=pct+'%';
-    document.getElementById('dmProgTxt').textContent=`${done.length}/${habits.length}`;
-  }else prog.style.display='none';
-  const list=document.getElementById('dmList');list.innerHTML='';
-  if(!habits.length){list.innerHTML='<div style="text-align:center;color:var(--muted);font-size:14px;padding:24px 0">Önce alışkanlık ekle.</div>';return}
-  habits.forEach(h=>{
-    const isDone=done.includes(h.id);
-    const row=document.createElement('div');row.className='dhr'+(isDone?' done-day':'');
-    row.style.setProperty('--rc',h.color);
-    row.innerHTML=`<div class="dhr-left"><span class="dhr-emoji">${h.emoji}</span><span class="dhr-name">${h.name}</span></div><div class="dhr-check">${isDone?'✓':''}</div>`;
-    row.onclick=()=>toggleDayHabit(h.id,key);
+function renderDayList(key) {
+  const done = completions[key] || [];
+  const pw = document.getElementById('dmProgWrap');
+  if (habits.length) {
+    pw.style.display = 'flex';
+    document.getElementById('dmProgFill').style.width = Math.round(done.length / habits.length * 100) + '%';
+    document.getElementById('dmProgTxt').textContent = done.length + '/' + habits.length;
+  } else { pw.style.display = 'none'; }
+  const list = document.getElementById('dmList'); list.innerHTML = '';
+  if (!habits.length) { list.innerHTML = '<div style="text-align:center;color:var(--muted);font-size:14px;padding:24px 0">Önce alışkanlık ekle.</div>'; return; }
+  habits.forEach(h => {
+    const isDone = done.includes(h.id);
+    const row = document.createElement('div'); row.className = 'dhr' + (isDone ? ' done-day' : '');
+    row.style.setProperty('--rc', h.color);
+    row.innerHTML = '<div class="dhr-left"><span class="dhr-emoji">' + h.emoji + '</span><span class="dhr-name">' + h.name + '</span></div><div class="dhr-check">' + (isDone ? '✓' : '') + '</div>';
+    row.onclick = () => toggleDayHabit(h.id, key);
     list.appendChild(row);
   });
 }
-function toggleDayHabit(id,key){
-  if(!completions[key])completions[key]=[];
-  const idx=completions[key].indexOf(id);
-  if(idx===-1)completions[key].push(id);
-  else completions[key].splice(idx,1);
-  // clean up empty days
-  if(completions[key].length===0)delete completions[key];
-  save();renderDayList(key);render();
-  // re-render calendar dots live
-  if(document.getElementById('pageİstatistik').classList.contains('active'))renderCalendar();
+function toggleDayHabit(id, key) {
+  if (!completions[key]) completions[key] = [];
+  const idx = completions[key].indexOf(id);
+  if (idx === -1) completions[key].push(id);
+  else completions[key].splice(idx, 1);
+  if (completions[key].length === 0) delete completions[key];
+  save(); renderDayList(key); render();
 }
-function closeDayModal(){
+function closeDayModal() {
   document.getElementById('dayBackdrop').classList.remove('open');
-  activeDayDate=null;
   renderCalendar();
 }
 
-/* DETAIL PAGE */
-function renderDetail(id){
-  const h=habits.find(x=>x.id===id);if(!h)return;
-  const allDays=Object.keys(completions).sort();
-  const tracked=allDays.length;
-  const daysWithH=allDays.filter(k=>(completions[k]||[]).includes(h.id)).length;
-  const pct=tracked>0?Math.round(daysWithH/tracked*100):0;
-  document.getElementById('detailTitle').textContent=h.name;
-  document.getElementById('detailIcon').textContent=h.emoji;
-  document.getElementById('detailName').textContent=h.name;
-  document.getElementById('detailStreakTxt').textContent=`${h.streak||0} günlük aktif seri 🔥`;
-  document.getElementById('dStreak').textContent=`${h.streak||0} 🔥`;
-  document.getElementById('dBest').textContent=`${h.best||0} ⭐`;
-  document.getElementById('dDays').textContent=`${daysWithH} gün`;
-  document.getElementById('dRate').textContent=`%${pct}`;
-  const r=35,circ=2*Math.PI*r,done=isToday(id);
-  document.getElementById('detailRing').innerHTML=`<svg width="80" height="80" viewBox="0 0 80 80" style="transform:rotate(-90deg)"><circle fill="none" stroke="rgba(255,255,255,.1)" stroke-width="5" cx="40" cy="40" r="${r}"/><circle fill="none" stroke="${h.color}" stroke-width="5" stroke-linecap="round" stroke-dasharray="${circ}" stroke-dashoffset="${circ-(done?circ:0)}" cx="40" cy="40" r="${r}"/></svg><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:22px;color:${h.color}">${done?'✓':''}</div>`;
-  document.getElementById('detailHero').style.borderColor=h.color+'44';
-  const dh=document.getElementById('detailHeatmap');dh.innerHTML='';
-  for(let i=29;i>=0;i--){
-    const d=new Date();d.setDate(d.getDate()-i);
-    const key=dk(d),comp=(completions[key]||[]).includes(id);
-    const cell=document.createElement('div');
-    cell.style.cssText=`width:13px;height:13px;border-radius:3px;flex-shrink:0;background:${comp?h.color:'rgba(255,255,255,.06)'};border:1px solid ${comp?h.color:'rgba(255,255,255,.05)'};box-shadow:${comp?'0 0 6px '+h.color+'55':''};`;
-    cell.title=`${d.getDate()} ${MONTHS[d.getMonth()]}`;
+/* DETAIL */
+function renderDetail(id) {
+  const h = habits.find(x => x.id === id); if (!h) return;
+  const allDays = Object.keys(completions).sort();
+  const tracked = allDays.length;
+  const daysWithH = allDays.filter(k => (completions[k] || []).includes(h.id)).length;
+  const pct = tracked > 0 ? Math.round(daysWithH / tracked * 100) : 0;
+  document.getElementById('detailTitle').textContent = h.name;
+  document.getElementById('detailIcon').textContent = h.emoji;
+  document.getElementById('detailName').textContent = h.name;
+  document.getElementById('detailStreakTxt').textContent = (h.streak || 0) + ' günlük aktif seri 🔥';
+  document.getElementById('dStreak').textContent = (h.streak || 0) + ' 🔥';
+  document.getElementById('dBest').textContent = (h.best || 0) + ' ⭐';
+  document.getElementById('dDays').textContent = daysWithH + ' gün';
+  document.getElementById('dRate').textContent = '%' + pct;
+  const r = 35, circ = 2 * Math.PI * r, done = isCompletedToday(id);
+  document.getElementById('detailRing').innerHTML =
+    '<svg width="80" height="80" viewBox="0 0 80 80" style="transform:rotate(-90deg)">' +
+    '<circle fill="none" stroke="rgba(255,255,255,.1)" stroke-width="5" cx="40" cy="40" r="' + r + '"/>' +
+    '<circle fill="none" stroke="' + h.color + '" stroke-width="5" stroke-linecap="round" stroke-dasharray="' + circ + '" stroke-dashoffset="' + (circ - (done ? circ : 0)) + '" cx="40" cy="40" r="' + r + '"/></svg>' +
+    '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:22px;color:' + h.color + '">' + (done ? '✓' : '') + '</div>';
+  document.getElementById('detailHero').style.borderColor = h.color + '44';
+  const dh = document.getElementById('detailHeatmap'); dh.innerHTML = '';
+  for (let i = 29; i >= 0; i--) {
+    const d = new Date(); d.setDate(d.getDate() - i);
+    const comp = (completions[dk(d)] || []).includes(id);
+    const cell = document.createElement('div');
+    cell.style.cssText = 'width:13px;height:13px;border-radius:3px;flex-shrink:0;background:' + (comp ? h.color : 'rgba(255,255,255,.06)') + ';border:1px solid ' + (comp ? h.color : 'rgba(255,255,255,.05)') + ';' + (comp ? 'box-shadow:0 0 6px ' + h.color + '55;' : '');
+    cell.title = d.getDate() + ' ' + MONTHS[d.getMonth()];
     dh.appendChild(cell);
   }
 }
 
 /* SETTINGS */
-function renderSettings(){
-  document.getElementById('settingsCount').textContent=habits.length;
-  document.getElementById('settingsDays').textContent=Object.keys(completions).length;
-  document.getElementById('settingsTotal').textContent=Object.values(completions).reduce((s,a)=>s+a.length,0);
+function renderSettings() {
+  document.getElementById('settingsCount').textContent = habits.length;
+  document.getElementById('settingsDays').textContent = Object.keys(completions).length;
+  document.getElementById('settingsTotal').textContent = Object.values(completions).reduce((s, a) => s + a.length, 0);
 }
-function resetAll(){
-  if(!confirm('Tüm alışkanlıklar ve geçmiş silinecek. Emin misin?'))return;
-  habits=[];completions={};save();render();renderSettings();showToast('🗑 Tüm veriler silindi');
+function resetAll() {
+  if (!confirm('Tüm alışkanlıklar ve geçmiş silinecek. Emin misin?')) return;
+  habits = []; completions = {}; save(); render(); renderSettings(); showToast('🗑 Tüm veriler silindi');
+}
+
+/* EXPORT / IMPORT */
+function exportData() {
+  const data = { habits, completions, exportedAt: new Date().toISOString(), version: '2.1' };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'streaks-yedek-' + new Date().toLocaleDateString('tr').replace(/\./g, '-') + '.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('✅ Yedek indirildi!');
+}
+function importData(e) {
+  const file = e.target.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    try {
+      const data = JSON.parse(ev.target.result);
+      if (!data.habits || !data.completions) throw new Error('Geçersiz');
+      if (!confirm(data.habits.length + ' alışkanlık yüklenecek. Mevcut veriler silinecek. Devam?')) return;
+      habits = data.habits; completions = data.completions;
+      save(); render(); renderSettings();
+      showToast('✅ Veri yüklendi!');
+    } catch(err) { showToast('❌ Geçersiz dosya'); }
+    e.target.value = '';
+  };
+  reader.readAsText(file);
 }
 
 /* ADD HABIT MODAL */
-function openModal(){
-  selEmoji=EMOJIS[0];selColor=COLORS[0];
-  document.getElementById('habitName').value='';
-  const ep=document.getElementById('emojiPicker');ep.innerHTML='';
-  EMOJIS.forEach(e=>{const d=document.createElement('div');d.className='eopt'+(e===selEmoji?' sel':'');d.textContent=e;d.onclick=()=>{selEmoji=e;ep.querySelectorAll('.eopt').forEach(x=>x.classList.remove('sel'));d.classList.add('sel')};ep.appendChild(d)});
-  const cp=document.getElementById('colorPicker');cp.innerHTML='';
-  COLORS.forEach(c=>{const d=document.createElement('div');d.className='copt'+(c===selColor?' sel':'');d.style.background=c;d.onclick=()=>{selColor=c;cp.querySelectorAll('.copt').forEach(x=>x.classList.remove('sel'));d.classList.add('sel')};cp.appendChild(d)});
-  // target days
-  selTargetDays=7;
-  const tdp=document.getElementById('targetDaysPicker');tdp.innerHTML='';
-  [1,2,3,4,5,6,7].forEach(n=>{const d=document.createElement('div');d.className='td-opt'+(n===7?' sel':'');d.textContent=n===7?'Her gün':n+'g';d.onclick=()=>{selTargetDays=n;tdp.querySelectorAll('.td-opt').forEach(x=>x.classList.remove('sel'));d.classList.add('sel')};tdp.appendChild(d)});
+function openModal() {
+  selEmoji = EMOJIS[0]; selColor = COLORS[0]; selTargetDays = 7;
+  document.getElementById('habitName').value = '';
+  const ep = document.getElementById('emojiPicker'); ep.innerHTML = '';
+  EMOJIS.forEach(em => {
+    const d = document.createElement('div'); d.className = 'eopt' + (em === selEmoji ? ' sel' : '');
+    d.textContent = em;
+    d.onclick = () => { selEmoji = em; ep.querySelectorAll('.eopt').forEach(x => x.classList.remove('sel')); d.classList.add('sel'); };
+    ep.appendChild(d);
+  });
+  const cp = document.getElementById('colorPicker'); cp.innerHTML = '';
+  COLORS.forEach(c => {
+    const d = document.createElement('div'); d.className = 'copt' + (c === selColor ? ' sel' : '');
+    d.style.background = c;
+    d.onclick = () => { selColor = c; cp.querySelectorAll('.copt').forEach(x => x.classList.remove('sel')); d.classList.add('sel'); };
+    cp.appendChild(d);
+  });
+  const tdp = document.getElementById('targetDaysPicker'); tdp.innerHTML = '';
+  [1, 2, 3, 4, 5, 6, 7].forEach(n => {
+    const d = document.createElement('div'); d.className = 'td-opt' + (n === 7 ? ' sel' : '');
+    d.textContent = n === 7 ? 'Her gün' : n + 'g';
+    d.onclick = () => { selTargetDays = n; tdp.querySelectorAll('.td-opt').forEach(x => x.classList.remove('sel')); d.classList.add('sel'); };
+    tdp.appendChild(d);
+  });
   document.getElementById('modalBackdrop').classList.add('open');
-  setTimeout(()=>document.getElementById('habitName').focus(),320);
+  setTimeout(() => document.getElementById('habitName').focus(), 320);
 }
-function closeModal(){document.getElementById('modalBackdrop').classList.remove('open')}
-function saveHabit(){
-  const name=document.getElementById('habitName').value.trim();
-  if(!name){const inp=document.getElementById('habitName');inp.style.borderColor='#FF3B30';setTimeout(()=>inp.style.borderColor='',800);return}
-  habits.push({id:Date.now().toString(),name,emoji:selEmoji,color:selColor,streak:0,best:0,targetDays:selTargetDays,createdAt:new Date().toISOString()});
-  save();closeModal();render();showToast('✅ Alışkanlık eklendi!');
+function closeModal() { document.getElementById('modalBackdrop').classList.remove('open'); }
+function saveHabit() {
+  const name = document.getElementById('habitName').value.trim();
+  if (!name) {
+    const inp = document.getElementById('habitName'); inp.style.borderColor = '#FF3B30';
+    setTimeout(() => inp.style.borderColor = '', 800); return;
+  }
+  habits.push({ id: Date.now().toString(), name, emoji: selEmoji, color: selColor, streak: 0, best: 0, targetDays: selTargetDays, createdAt: new Date().toISOString() });
+  save(); closeModal(); render(); showToast('✅ Alışkanlık eklendi!');
 }
-document.getElementById('habitName').addEventListener('keydown',e=>{if(e.key==='Enter')saveHabit()});
+document.getElementById('habitName').addEventListener('keydown', e => { if (e.key === 'Enter') saveHabit(); });
 
 /* TOAST */
 let toastT;
-function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('show'),1800)}
+function showToast(msg) {
+  const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('show'), 1800);
+}
 
 /* INIT */
-renderQuote();render();
+renderQuote();
+render();
 </script>
 </body>
 </html>
