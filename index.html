@@ -68,7 +68,7 @@ body{
 @keyframes popIn{0%{transform:scale(.6);opacity:0}60%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}
 .habit-card.just-done .habit-icon{animation:popIn .4s cubic-bezier(.34,1.5,.64,1)}
 .del-btn{display:none;position:absolute;top:0;right:0;background:rgba(255,59,48,.85);backdrop-filter:blur(10px);border:none;border-radius:0 22px 0 14px;padding:10px 13px;font-size:14px;color:#fff;cursor:pointer;z-index:10}
-.habit-card-wrap:hover .del-btn{display:block}
+.habit-card-wrap.show-del .del-btn{display:block}
 .habit-card-wrap.dragging{opacity:.4;transform:scale(.97)}
 .habit-card-wrap.drag-over .habit-card{border-color:var(--a3)!important;box-shadow:0 0 0 2px var(--a3)}
 .empty{width:100%;padding:60px 24px;text-align:center}
@@ -455,14 +455,12 @@ function toggleHabit(id) {
   const idx = completions[key].indexOf(id);
   if (idx === -1) {
     completions[key].push(id);
-    const h = habits.find(x => x.id === id);
-    if (h) { h.streak = (h.streak || 0) + 1; if (h.streak > (h.best || 0)) h.best = h.streak; }
+    recalcStreak(id);
     showToast('🔥 Tamamlandı!');
     launchConfetti();
   } else {
     completions[key].splice(idx, 1);
-    const h = habits.find(x => x.id === id);
-    if (h && h.streak > 0) h.streak--;
+    recalcStreak(id);
     showToast('↩ Geri alındı');
   }
   save(); render();
@@ -509,6 +507,17 @@ function render() {
     wrap.addEventListener('dragover', onDragOver);
     wrap.addEventListener('drop', onDrop);
     wrap.addEventListener('dragend', onDragEnd);
+    // long press to show delete
+    let pressTimer;
+    wrap.addEventListener('touchstart', () => {
+      pressTimer = setTimeout(() => { wrap.classList.add('show-del'); }, 500);
+    }, {passive: true});
+    wrap.addEventListener('touchend', () => clearTimeout(pressTimer));
+    wrap.addEventListener('touchmove', () => clearTimeout(pressTimer));
+    // click outside to hide
+    document.addEventListener('click', function hideDelBtn(e) {
+      if (!wrap.contains(e.target)) { wrap.classList.remove('show-del'); document.removeEventListener('click', hideDelBtn); }
+    });
     const card = document.createElement('div');
     card.className = 'habit-card' + (done ? ' completed' : '');
     card.dataset.id = h.id; card.style.setProperty('--hc', h.color);
@@ -698,12 +707,35 @@ function renderDayList(key) {
     list.appendChild(row);
   });
 }
+function recalcStreak(habitId) {
+  // Recalculate streak from scratch based on completions
+  const h = habits.find(x => x.id === habitId);
+  if (!h) return;
+  const now = new Date();
+  let streak = 0, best = h.best || 0;
+  // Walk backwards from today until a day without completion
+  for (let i = 0; i < 365; i++) {
+    const d = new Date(now);
+    d.setDate(now.getDate() - i);
+    const key = dk(d);
+    if ((completions[key] || []).includes(habitId)) {
+      streak++;
+      if (streak > best) best = streak;
+    } else {
+      break; // streak broken
+    }
+  }
+  h.streak = streak;
+  h.best = best;
+}
+
 function toggleDayHabit(id, key) {
   if (!completions[key]) completions[key] = [];
   const idx = completions[key].indexOf(id);
   if (idx === -1) completions[key].push(id);
   else completions[key].splice(idx, 1);
   if (completions[key].length === 0) delete completions[key];
+  recalcStreak(id);
   save(); renderDayList(key); render();
 }
 function closeDayModal() {
